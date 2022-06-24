@@ -21,6 +21,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+
 .rickAndMorty > div {
     max-width: 200px;
 

@@ -14,4 +14,6 @@ const RickAndMorty = (props) => {
     );
 };
 
+
+
 export default RickAndMorty;
