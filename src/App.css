@@ -1,38 +1,30 @@
-.App {
-  text-align: center;
+.simpsons {
+    display: flex;
+    justify-content: space-evenly;
+}
+.simpsons > div > img {
+    max-width: 200px;
+    max-height: 300px;
+}
+.simpsons > div {
+    width: 220px;
+}
+.simpsons > div > h3 {
+    text-align: center;
+}
+.simpsons > div > p {
+    text-align: justify;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rickAndMorty {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
+.rickAndMorty > div {
+    max-width: 200px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rickAndMorty > div > img {
+    max-width: 200px;
 }
