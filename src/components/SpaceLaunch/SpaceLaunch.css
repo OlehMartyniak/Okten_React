@@ -1,0 +1,14 @@
+.spaceLaunch > h4 {
+    text-align: center;
+}
+.spaceLaunch > p {
+    text-align: center;
+}
+.spaceLaunch > img {
+    text-align: center;
+}
+.spaceLaunch {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
