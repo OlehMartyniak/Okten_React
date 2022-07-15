@@ -1,11 +1,13 @@
 import React from 'react';
+import {Comments, Posts} from "./components";
 
 const App = () => {
-  return (
-      <div>
-        
-      </div>
-  );
+    return (
+        <div>
+            <Posts/>
+            <Comments/>
+        </div>
+    );
 };
 
 export default App;
