@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { carActions } from "../../redux/slices/carSlice";
+import { carActions } from "../../redux";
 
 const Car = ({car}) => {
 
@@ -13,8 +13,8 @@ const Car = ({car}) => {
             <p>year: {year}</p>
             <p>price: {price}</p>
             <div className="carButtons">
-                <button>update</button>
-                <button onClick={dispatch(carActions.deleteCar(id))}>delete</button>
+                <button onClick={()=>dispatch(carActions.setCarForUpdate(car))}>update</button>
+                <button onClick={()=>dispatch(carActions.deleteCar({id}))}>delete</button>
             </div>
         </div>
     );

@@ -1,14 +1,29 @@
+import { useEffect } from 'react';
 import {useForm} from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { carActions } from '../../redux/slices/carSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { carActions } from '../../redux';
+import { Errors } from '../Errors/Errors';
 
 const CarForm = () => {
 
-    const {reset,register,handleSubmit} = useForm();
+    const {reset,register,handleSubmit,setValue} = useForm();
+    const {carForUpdate,errors} = useSelector(state =>state.cars);
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        if (carForUpdate) {
+            setValue('model',carForUpdate.model)
+            setValue('year',carForUpdate.year)
+            setValue('price',carForUpdate.price)
+        }
+    },[carForUpdate,setValue])
+
     const submit = async (data)=> {
-        await dispatch(carActions.addCar({car: data}))
+        if (carForUpdate) {
+            await dispatch(carActions.updateCar({id:carForUpdate.id, car: data}))
+        } else {
+            await dispatch(carActions.addCar({car: data}))
+        }
         reset()
     }
 
@@ -17,7 +32,8 @@ const CarForm = () => {
             <input type="text" placeholder='model' {...register('model')}/>
             <input type="text" placeholder='year' {...register('year')}/>
             <input type="text" placeholder='price' {...register('price')}/>
-            <button>submit</button>
+            <button>{ carForUpdate ? 'update' : 'create'}</button>
+            {errors && <Errors key={1}/>}
         </form>
     );
 };
